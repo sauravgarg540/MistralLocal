@@ -1,9 +1,26 @@
-# Chatbot using Mistral with History context
-Start chatting with Mistral model locally. This is especially useful if you don't want to share your data but still want to use chatGPT like model
- Easiest way to get API from huggingface, this way you don't to have a GPU to run the model.
+# Chat with Mistral with History context
+Unleashing Language Magic: This project showcases the versatility of Mistral LLM by offering two groundbreaking deployment options - a locally deployed LLM for unparalleled privacy and control, and an LLM deployed on the Hugging Face serverless platform for seamless scalability. Leveraging the power of Gradio for intuitive interaction and Hugging Face for robust model integration, we've crafted an innovative solution that empowers users to harness the full potential of language models with ease and flexibility.
 
-## Model supported:
-- Mistral Instruct
+## Serverless or Local deployment
+By default, the api call is made to model hosted on huggingface. You can also run the model locally or serverless by setting the environment variable `DEPLOYMENT = local/serverless`.
+
+For the local we suggest to use a machine with GPU for faster inference.
+
+You can choose to completely run the model locally on cpu by setting
+```bash
+USE_GPU = False
+```
+
+## Huggingface model supported:
+- mistral_instruct: mistralai/Mistral-7B-Instruct-v0.2
+- mistral: mistralai/Mistral-7B-v0.1
+
+Easily switch between models by changing environment variable
+```bash
+MODEL = mistral_instruct #default
+# or
+MODEL = mistral    
+```
 
 ## Setup
 
