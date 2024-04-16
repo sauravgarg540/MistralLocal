@@ -1,8 +1,9 @@
 import os
+
 from pydantic import field_validator
 from pydantic_settings import BaseSettings
-from .utils import get_cpu_or_gpu
 
+from .utils import get_cpu_or_gpu
 
 LLM_MODELS = {
     "mistral_instruct": "mistralai/Mistral-7B-Instruct-v0.2",
@@ -22,7 +23,9 @@ class Config(BaseSettings):
     @classmethod
     def check_valid_model_name(cls, v: str) -> str:
         if v not in LLM_MODELS:
-            raise ValueError(f"Model {v} not found in LLM_MODELS choose from {LLM_MODELS.keys()}")
+            raise ValueError(
+                f"Model {v} not found in LLM_MODELS choose from {LLM_MODELS.keys()}"
+            )
         return LLM_MODELS[v]
 
     @field_validator('DEPLOYMENT')
@@ -55,5 +58,6 @@ class Config(BaseSettings):
             if v == 'cpu':
                 print('No GPU available, using CPU instead.')
         return v
+
 
 config = Config()
