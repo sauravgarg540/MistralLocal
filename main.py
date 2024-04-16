@@ -1,9 +1,11 @@
-import gradio as gr
 import time
-from src.mistral import Mistral
 
+import gradio as gr
 
-mistral_model = Mistral(mode="serverless")
+from src.language_model import LLModel
+
+mistral_model = LLModel()
+
 
 def predict(message, *args, **kwargs):
 
